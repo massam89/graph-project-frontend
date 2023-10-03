@@ -1,9 +1,13 @@
 import React from 'react'
+import styles from './index.module.css'
 
 const Loader = () => {
   return (
-    <div>Loader</div>
+    <div className={styles['loader-container']}>
+       <span className={styles.loader}></span>
+    </div>
+   
   )
 }
 
-export default Loader
+export default React.memo(Loader)

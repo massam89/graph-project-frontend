@@ -1,8 +1,25 @@
 import React from 'react'
 import Form from '../../components/form'
+import { useNavigate } from 'react-router-dom';
 import { login } from './_srv';
 
 const Login = () => {
+
+  const navigate = useNavigate()
+
+  const submitLogin = (data) => {
+    login({
+      username: data.userName.value,
+      password: data.password.value
+    })
+    .then(res => {
+      if(res.data.result === 'success'){
+        localStorage.setItem('token', res.data.token)
+        navigate('/dashboard')
+      }
+    })
+    .catch(err => console.log(err))
+  }
 
   const formConfiguration = {
     header: 'Login',
@@ -20,18 +37,7 @@ const Login = () => {
         label: 'Password'
       }
     ],
-    onSubmit: (data) => {
-      login({
-        username: data.userName.value,
-        password: data.password.value
-      })
-      .then(res => {
-        if(res.data.result === 'success'){
-          localStorage.setItem('token', res.data.token)
-        }
-      })
-      .catch(err => console.log(err))
-    }
+    onSubmit: submitLogin
   }
 
   return (
