@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import styles from './App.module.css'
 import checkAuth from "./utils/checkAuth";
 import Loader from "./components/loader";
 import { Context } from "./store/ContextProvider";
 import axios from "axios";
+import Layout from "./layout";
 
 const App = () => {
   const {state, loaderHandler} = useContext(Context)
@@ -31,10 +31,10 @@ const App = () => {
   }, [navigate, loaderHandler])
 
   return (
-    <div className={styles.app}>
+    <Layout>
       <Outlet />
       {state.loader && <Loader />}
-    </div>
+    </Layout>
   );
 };
 

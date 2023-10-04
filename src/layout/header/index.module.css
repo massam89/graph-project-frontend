@@ -1,0 +1,24 @@
+.container {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(41, 39, 39, 0.816);
+    letter-spacing: 3px;
+}
+
+.btn {
+    background-color: rgba(155, 152, 152, 0.85);
+    color: white;
+    padding: 0 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgba(173, 73, 73, 0.85);
+}
