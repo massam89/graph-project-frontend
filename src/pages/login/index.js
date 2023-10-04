@@ -2,6 +2,8 @@ import React from 'react'
 import Form from '../../components/form'
 import { useNavigate } from 'react-router-dom';
 import { login } from './_srv';
+import styles from './index.module.css'
+import { lockIcon, userIcon } from '../../utils/icons';
 
 const Login = () => {
 
@@ -22,27 +24,35 @@ const Login = () => {
   }
 
   const formConfiguration = {
-    header: 'Login',
+    headerText: 'Login',
+    headerClassNames: styles.header,
+    buttonText: 'Login',
+    buttonClassNames: styles['submit-btn'],
+    formClassNames: styles.form,
+    onSubmit: submitLogin,
     inputs: [
       {
         id: 'userName',
         name: 'userName',
         type: 'text',
-        label: 'Username'
+        placeholder: 'Username',
+        className: styles.input,
+        icon: userIcon(styles.icon)
       },
       {
         id: 'password',
         name: 'password',
         type: 'password',
-        label: 'Password'
+        placeholder: 'Password',
+        className: styles.input,
+        icon: lockIcon(styles.icon)
       }
-    ],
-    onSubmit: submitLogin
+    ]
   }
 
   return (
-    <div>
-      <Form config={formConfiguration} />
+    <div className={styles.container}>
+      <Form {...formConfiguration} />
     </div>
   )
 }

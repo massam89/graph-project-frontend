@@ -5,7 +5,6 @@ import checkAuth from "./utils/checkAuth";
 import Loader from "./components/loader";
 import { Context } from "./store/ContextProvider";
 import axios from "axios";
-import Modal from "./components/modal";
 
 const App = () => {
   const {state, loaderHandler} = useContext(Context)
@@ -29,13 +28,12 @@ const App = () => {
       loaderHandler(false)
       return Promise.reject(error);
     });
-  }, [navigate])
+  }, [navigate, loaderHandler])
 
   return (
     <div className={styles.app}>
       <Outlet />
       {state.loader && <Loader />}
-      <Modal />
     </div>
   );
 };

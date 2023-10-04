@@ -1,15 +1,17 @@
 import React from 'react'
 import Input from '../../components/input'
 
-const Form = ({config}) => {
+const Form = (
+  {
+  onSubmit,
+  inputs=[],
+  formClassNames='',
+  headerText,
+  headerClassNames='',
+  buttonText,
+  buttonClassNames=''
+}) => {
 
-  const {
-    header,
-    formStyles={},
-    formClassNames='',
-    inputs=[],
-    onSubmit
-  } = config
 
 const onSubmitHandler = (e) => {
   e.preventDefault()
@@ -17,10 +19,10 @@ const onSubmitHandler = (e) => {
 }
 
   return (
-    <form onSubmit={onSubmitHandler} className={formClassNames} style={formStyles}>
-      <h2>{header}</h2>
+    <form onSubmit={onSubmitHandler} className={formClassNames}>
+      <h2 className={headerClassNames}>{headerText}</h2>
       {inputs.map((input, index) => <Input key={index} config={input} />)}
-      <button type='submit'>Login</button>
+      <button className={buttonClassNames} type='submit'>{buttonText}</button>
     </form>
   )
 }

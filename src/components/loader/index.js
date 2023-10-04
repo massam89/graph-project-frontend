@@ -6,8 +6,7 @@ const Loader = () => {
     <div className={styles['loader-container']}>
        <span className={styles.loader}></span>
     </div>
-   
   )
 }
 
-export default React.memo(Loader)
+export default Loader
