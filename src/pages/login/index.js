@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Form from '../../components/form'
 import { useNavigate } from 'react-router-dom';
 import { login } from './_srv';
 import styles from './index.module.css'
 import { lockIcon, userIcon } from '../../utils/icons';
+import { Context } from '../../store/ContextProvider';
 
 const Login = () => {
+  const {modalHandler} = useContext(Context)
 
   const navigate = useNavigate()
 
@@ -18,9 +20,11 @@ const Login = () => {
       if(res.data.result === 'success'){
         localStorage.setItem('token', res.data.token)
         navigate('/dashboard')
+      } else {
+        modalHandler('Wrong username or password')
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => modalHandler('Connection Error!'))
   }
 
   const formConfiguration = {

@@ -5,6 +5,7 @@ import Loader from "./components/loader";
 import { Context } from "./store/ContextProvider";
 import axios from "axios";
 import Layout from "./layout";
+import Modal from "./components/modal";
 
 const App = () => {
   const {state, loaderHandler} = useContext(Context)
@@ -34,6 +35,7 @@ const App = () => {
     <Layout>
       <Outlet />
       {state.loader && <Loader />}
+      <Modal />
     </Layout>
   );
 };
