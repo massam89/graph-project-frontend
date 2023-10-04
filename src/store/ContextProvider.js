@@ -4,7 +4,8 @@ export const Context = React.createContext()
 
 const initialState = {
   loader: false,
-  modal: {isShow: false, text: ''}
+  modal: {isShow: false, text: ''},
+  user: {username: 'Admin'}
 }
 
 const reduceFunction = (state, action) => {

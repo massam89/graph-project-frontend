@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import router from "./router";
 import ContextProvider from "./store/ContextProvider";
+import router from "./router";
 
 import "./index.css";
 
