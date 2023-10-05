@@ -13,10 +13,9 @@
 .btn {
     background-color: rgba(155, 152, 152, 0.85);
     color: white;
-    padding: 5px 20px;
+    padding: 10px 20px;
     outline: none;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -42,6 +41,8 @@
     fill: #fffffd
 }
 
-.logout-icon {
-    
+.box-down {
+    padding: 10px 5px;
+    background-color: #787877b5;
+    font-size: 0.8rem;
 }

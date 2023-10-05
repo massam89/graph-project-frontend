@@ -1,0 +1,20 @@
+.container {
+    position: relative;
+}
+
+.box-down {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-down li {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.btn {
+    border-radius: 5px 5px 0 0;
+}
