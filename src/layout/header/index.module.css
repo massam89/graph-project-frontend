@@ -27,6 +27,17 @@
 .arrow-down-icon {
     width: 10px;
     height: 10px;
+}
+
+.logout-icon{
+    width: 10px;
+    height: 10px;
+    fill: #fffffd;
+}
+
+.arrow-down-icon {
+    width: 10px;
+    height: 10px;
     margin-left: 10px;
     fill: #fffffd
 }

@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import styles from "./index.module.css";
 
-const Modal = ({text, modalHandler}) => {
+const Modal = ({text, onClickBtn, btnText}) => {
 
   return (
       <div className={styles.container}>
         <div className={styles.box}>
           <p className={styles.text}>{text}</p>
-          <button className={styles.btn} onClick={modalHandler}>OK</button>
+          <button className={styles.btn} onClick={onClickBtn}>{btnText}</button>
         </div>
       </div>
     )

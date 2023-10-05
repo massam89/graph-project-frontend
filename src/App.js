@@ -12,7 +12,7 @@ const App = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    // navigate(`${!checkAuth() ? '/login' : '/dashboard'}`)
+    navigate(`${!checkAuth() ? '/login' : '/dashboard'}`)
 
     axios.interceptors.request.use(function (config) {
       loaderHandler(true)
@@ -35,7 +35,13 @@ const App = () => {
     <Layout>
       <Outlet />
       {state.loader && <Loader />}
-      {state.modal.isShow && <Modal text={state.modal.text} modalHandler={() => modalHandler()}/>}
+      {state.modal.isShow && (
+        <Modal
+          text={state.modal.text}
+          btnText="OK"
+          onClickBtn={() => modalHandler()}
+        />
+      )}
     </Layout>
   );
 };

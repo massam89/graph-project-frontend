@@ -21,7 +21,7 @@ const Login = () => {
         localStorage.setItem('token', res.data.token)
         navigate('/dashboard')
       } else {
-        modalHandler('Wrong username or password')
+        modalHandler('Wrong username or password!')
       }
     })
     .catch(err => modalHandler('Connection Error!'))
