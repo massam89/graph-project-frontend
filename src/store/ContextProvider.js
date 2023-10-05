@@ -9,7 +9,7 @@ const initialState = {
   cards: {
     total: 0,
     viewed: 0,
-    page: 0,
+    page: 1,
     size: 3,
     items: []
   }
@@ -27,6 +27,12 @@ const reduceFunction = (state, action) => {
       return {...state, modal: {isShow: false, text: ''}}
     case 'SET_USERNAME':
       return {...state, username: action.payload}
+    case 'SET_CARDS':
+      const preparedData = {...state}
+      preparedData.cards.total = action.payload.total
+      preparedData.cards.viewed = preparedData.cards.page * preparedData.cards.size
+      preparedData.cards.items = action.payload.cards
+      return preparedData
     default:
       return state
   }
@@ -56,11 +62,19 @@ const ContextProvider = (props) => {
     dispatch({type: 'SET_USERNAME', payload: data})
   }
 
+  const cardsHandler = (data) => {
+    console.log(data);
+    dispatch({type: 'SET_CARDS', payload: {total: data.total, cards: data.result}})
+  }
+
+  console.log(state);
+
   const value = {
     state,
     loaderHandler,
     modalHandler,
-    usernameHandler
+    usernameHandler,
+    cardsHandler
   }
 
   return <Context.Provider value={value} >{props.children}</Context.Provider>

@@ -1,0 +1,14 @@
+.container {
+    padding: 20px
+}
+
+.list-count {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0
+}
+
+.list-count span {
+    font-size: 1.4rem;
+}
+
