@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { getUsername } from './_srv'
 import { Context } from '../../store/ContextProvider'
+import Card from '../../components/card'
 
 const Dashboard = () => {
   const {usernameHandler, modalHandler} = useContext(Context)
@@ -12,7 +13,7 @@ const Dashboard = () => {
   }, [])
 
   return (
-    <div>Dashboard</div>
+    <Card />
   )
 }
 
