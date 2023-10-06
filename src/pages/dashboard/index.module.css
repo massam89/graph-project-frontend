@@ -2,7 +2,6 @@
     padding: 20px;
     height: 85%;
     overflow: auto;
-    margin-bottom: 70px;
 }
 
 .list-count {
@@ -34,4 +33,18 @@
 
 .load-more button:hover {
     background-color: rgba(173, 73, 73, 0.85);
+}
+
+.cards-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+
+}
+
+.card {
+    width: 32%;
+    box-shadow:  0 0 10px 1px #6d6c6c;
 }

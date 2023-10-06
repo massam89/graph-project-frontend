@@ -46,7 +46,13 @@ const Dashboard = () => {
       </div>
 
       <div className={styles['cards-container']}>
-        {state.cards.items.map((item, index) => <Card item={item} key={index} />)} 
+        {state.cards.items.map((item, index) => 
+        <Card 
+          item={item} 
+          key={index}
+          containerClassNames={styles.card}
+        />
+        )} 
       </div>
 
       {isLoadMoreShow &&

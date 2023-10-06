@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from './index.module.css'
 import airplaneImage from '../../assets/airplane.png'
+import { upperCaseFirstLetter } from '../../utils/helper';
+import moment from 'moment/moment';
 
 const Card = ({containerClassNames, item}) => {
 
@@ -11,15 +13,15 @@ const Card = ({containerClassNames, item}) => {
       <div className={styles['top-box']}>
 
         <div className={styles.airline}>
-          Luftanza
+          <img src={item.logoSrc} style={item.logoStyle} />
         </div>
 
         <div className={styles['details']}>
 
           <div className={styles['location-time-date']}>
-            <span>Bangularo</span>
-            <span>06:20</span>
-            <span>June 12</span>
+          <span>{item.src.iso3}</span>
+            <span>{moment(item.src.time).format('hh:mm')}</span> 
+            <span>{moment(item.src.time).format('MMM DD')}</span>
           </div>
 
           <div className={styles['airplane-image']}>
@@ -27,9 +29,9 @@ const Card = ({containerClassNames, item}) => {
           </div>
 
           <div className={styles['location-time-date']}>
-            <span>New Delhi</span>
-            <span>10:20</span>
-            <span>June 12</span>
+            <span>{item.dst.iso3}</span>
+            <span>{moment(item.dst.time).format('hh:mm')}</span> 
+            <span>{moment(item.dst.time).format('MMM DD')}</span>
           </div>
 
         </div>
@@ -37,11 +39,11 @@ const Card = ({containerClassNames, item}) => {
       </div>
 
       <div className={styles['bottom-box']}>
-        <span>$100</span>
+        <span>${item.price}</span>
       </div>
 
       <div className={styles.type}>
-        <span>Economy</span>
+        <span>{upperCaseFirstLetter(item.class)}</span>
       </div>
 
     </div>
