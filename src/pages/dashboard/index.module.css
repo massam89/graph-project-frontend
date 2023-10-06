@@ -1,5 +1,8 @@
 .container {
-    padding: 20px
+    padding: 20px;
+    height: 85%;
+    overflow: auto;
+    margin-bottom: 70px;
 }
 
 .list-count {
@@ -12,3 +15,23 @@
     font-size: 1.4rem;
 }
 
+.load-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.load-more button {
+    background-color: rgba(155, 152, 152, 0.85);
+    color: white;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.load-more button:hover {
+    background-color: rgba(173, 73, 73, 0.85);
+}

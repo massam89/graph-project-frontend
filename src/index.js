@@ -7,9 +7,7 @@ import router from "./router";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <ContextProvider>
-      <RouterProvider router={router} />
-    </ContextProvider>
-  </React.StrictMode>
+  <ContextProvider>
+    <RouterProvider router={router} />
+  </ContextProvider>
 );

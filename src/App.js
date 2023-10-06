@@ -27,6 +27,10 @@ const App = () => {
       return response;
     }, function (error) {
       loaderHandler(false)
+      if(error.response.status === 401){
+        localStorage.removeItem('token')
+        navigate('/')
+      }
       return Promise.reject(error);
     });
   }, [navigate, loaderHandler])

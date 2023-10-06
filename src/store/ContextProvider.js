@@ -9,7 +9,7 @@ const initialState = {
   cards: {
     total: 0,
     viewed: 0,
-    page: 1,
+    page: 0,
     size: 3,
     items: []
   }
@@ -30,8 +30,9 @@ const reduceFunction = (state, action) => {
     case 'SET_CARDS':
       const preparedData = {...state}
       preparedData.cards.total = action.payload.total
+      preparedData.cards.page = preparedData.cards.page + 1
       preparedData.cards.viewed = preparedData.cards.page * preparedData.cards.size
-      preparedData.cards.items = action.payload.cards
+      preparedData.cards.items = [...preparedData.cards.items, ...action.payload.cards]
       return preparedData
     default:
       return state

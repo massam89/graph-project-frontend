@@ -2,7 +2,10 @@ import React from 'react'
 import styles from './index.module.css'
 import airplaneImage from '../../assets/airplane.png'
 
-const Card = ({containerClassNames}) => {
+const Card = ({containerClassNames, item}) => {
+
+  console.log(item);
+
   return (
     <div className={`${styles.container} ${containerClassNames}`}>
       <div className={styles['top-box']}>
@@ -45,4 +48,4 @@ const Card = ({containerClassNames}) => {
   )
 }
 
-export default Card
+export default React.memo(Card)
