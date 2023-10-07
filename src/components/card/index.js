@@ -13,7 +13,7 @@ const Card = ({containerClassNames, item}) => {
       <div className={styles['top-box']}>
 
         <div className={styles.airline}>
-          <img src={item.logoSrc} style={item.logoStyle} />
+          <img src={item.logoSrc} style={item.logoStyle} loading='lazy' />
         </div>
 
         <div className={styles['details']}>
