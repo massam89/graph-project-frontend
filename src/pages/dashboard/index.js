@@ -3,18 +3,25 @@ import { getList, getUsername } from './_srv'
 import { Context } from '../../store/ContextProvider'
 import Card from '../../components/card'
 import styles from './index.module.css'
+import BtnWithLoader from '../../components/btnWithLoader'
 
 const Dashboard = () => {
   const {state, usernameHandler, modalHandler, cardsHandler} = useContext(Context)
+  const [loadingOnBtn, setLoadingOnBtn] = useState(false)
   const size = state.cards.size
   const page = state.cards.page
 
   const getListHandler = useCallback(() => {
+    setLoadingOnBtn(true)
     getList(page, size)
     .then(res => {
-      cardsHandler(res.data)
+      cardsHandler(res)
+      setLoadingOnBtn(false)
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err)
+      setLoadingOnBtn(false)
+    })
 
   }, [size, page, cardsHandler])
 
@@ -47,9 +54,11 @@ const Dashboard = () => {
 
       {state.loadMoreBtn &&
         <div className={styles['load-more']}>
-          <button onClick={getListHandler}>
-            <span>Load more</span>  
-          </button>
+          <BtnWithLoader 
+            btnText='Load More'
+            onClick={getListHandler}
+            isLoading={loadingOnBtn}
+            />
         </div>
       }
       
