@@ -5,17 +5,20 @@ export const Context = React.createContext()
 const initialState = {
   loader: false,
   modal: {isShow: false, text: ''},
+  loadMoreBtn: true,
   user: {username: ''},
   cards: {
     total: 0,
     viewed: 0,
-    page: 0,
+    page: 1,
     size: 3,
     items: []
   }
 }
 
 const reduceFunction = (state, action) => {
+  const preparedData = {...state}
+
   switch(action.type){
     case 'SHOW_LOADER':
       return {...state, loader: true}
@@ -28,12 +31,26 @@ const reduceFunction = (state, action) => {
     case 'SET_USERNAME':
       return {...state, username: action.payload}
     case 'SET_CARDS':
-      const preparedData = {...state}
       preparedData.cards.total = action.payload.total
-      preparedData.cards.page = preparedData.cards.page + 1
       preparedData.cards.viewed = preparedData.cards.page * preparedData.cards.size
+      preparedData.cards.page = preparedData.cards.page + 1
+      if(preparedData.cards.page * preparedData.cards.size > preparedData.cards.total){preparedData.loadMoreBtn = false}
       preparedData.cards.items = [...preparedData.cards.items, ...action.payload.cards]
       return preparedData
+    case 'RESET_STATE':
+      return {
+        loader: false,
+        modal: {isShow: false, text: ''},
+        loadMoreBtn: true,
+        user: {username: ''},
+        cards: {
+          total: 0,
+          viewed: 0,
+          page: 1,
+          size: 3,
+          items: []
+        }
+      }
     default:
       return state
   }
@@ -43,13 +60,13 @@ const ContextProvider = (props) => {
 
   const [state, dispatch] = useReducer(reduceFunction, initialState)
 
- const loaderHandler = (action) => {
+  const loaderHandler = useCallback((action) => {
     if(action){
       dispatch({type: 'SHOW_LOADER'})
     } else {
       dispatch({type: 'HIDE_LOADER'})
     }
-  }
+  }, [])
 
   const modalHandler = useCallback((text) => {
     if(text){
@@ -61,10 +78,14 @@ const ContextProvider = (props) => {
 
   const usernameHandler = useCallback((data) => {
     dispatch({type: 'SET_USERNAME', payload: data})
-  }, [])
+  },[])
 
   const cardsHandler = useCallback((data) => {
     dispatch({type: 'SET_CARDS', payload: {total: data.total, cards: data.result}})
+  }, [])
+
+  const resetState = useCallback(() => {
+    dispatch({type: 'RESET_STATE'})
   }, [])
 
   const value = {
@@ -72,7 +93,8 @@ const ContextProvider = (props) => {
     loaderHandler,
     modalHandler,
     usernameHandler,
-    cardsHandler
+    cardsHandler,
+    resetState
   }
 
   return <Context.Provider value={value} >{props.children}</Context.Provider>

@@ -5,23 +5,16 @@ import Card from '../../components/card'
 import styles from './index.module.css'
 
 const Dashboard = () => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [isLoadMoreShow, setIsLoadMoreShow] = useState(true)
   const {state, usernameHandler, modalHandler, cardsHandler} = useContext(Context)
   const size = state.cards.size
   const page = state.cards.page
 
   const getListHandler = useCallback(() => {
-    if(size <= page + 1) setIsLoadMoreShow(false)
-
-    setIsLoading(true)
-
-    getList(page + 1, size)
+    getList(page, size)
     .then(res => {
-      setIsLoading(false)
       cardsHandler(res.data)
     })
-    .catch(err => setIsLoading(false))
+    .catch(err => console.log(err))
 
   }, [size, page, cardsHandler])
 
@@ -31,9 +24,8 @@ const Dashboard = () => {
     .catch(err => modalHandler(err.response?.data.result))
 
     getListHandler()
-    
-    // eslint-disable-next-line
-  }, [usernameHandler, modalHandler])
+
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -53,14 +45,10 @@ const Dashboard = () => {
         )} 
       </div>
 
-      {isLoadMoreShow &&
+      {state.loadMoreBtn &&
         <div className={styles['load-more']}>
           <button onClick={getListHandler}>
-            {!isLoading ?
-              <span>Load more</span>
-            :
-              <span>Get Data</span>
-          }   
+            <span>Load more</span>  
           </button>
         </div>
       }

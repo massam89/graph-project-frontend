@@ -9,13 +9,14 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate()
-  const {modalHandler, state} = useContext(Context)
+  const {modalHandler, state, resetState} = useContext(Context)
 
   const logoutHandler = () => {
     logout()
     .then(res => {
       localStorage.removeItem('token')
-      navigate('/')
+      resetState()
+      navigate('/login')
     })
     .catch(err => modalHandler(err.response?.data.result))
   }
