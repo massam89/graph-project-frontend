@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import styles from "./index.module.css";
 import checkAuth from "../../utils/checkAuth";
 import { Context } from "../../store/ContextProvider";
 import Popover from "../../components/popover";
 import { logoutIcon } from "../../utils/icons";
-import { getUsername, logout } from "./_srv";
+import { logout } from "./_srv";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {

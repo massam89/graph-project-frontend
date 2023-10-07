@@ -5,15 +5,13 @@ import { upperCaseFirstLetter } from '../../utils/helper';
 import moment from 'moment/moment';
 
 const Card = ({containerClassNames, item}) => {
-
-  console.log(item);
-
+  
   return (
     <div className={`${styles.container} ${containerClassNames}`}>
       <div className={styles['top-box']}>
 
         <div className={styles.airline}>
-          <img src={item.logoSrc} style={item.logoStyle} loading='lazy' />
+          <img src={item.logoSrc} style={item.logoStyle} loading='lazy' alt='airline' />
         </div>
 
         <div className={styles['details']}>
@@ -25,7 +23,7 @@ const Card = ({containerClassNames, item}) => {
           </div>
 
           <div className={styles['airplane-image']}>
-            <img src={airplaneImage} alt='airplane image' />
+            <img src={airplaneImage} alt='airplane' />
           </div>
 
           <div className={styles['location-time-date']}>

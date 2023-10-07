@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useCallback, useReducer } from 'react'
 
 export const Context = React.createContext()
 
@@ -51,24 +51,21 @@ const ContextProvider = (props) => {
     }
   }
 
-  const modalHandler = (text) => {
+  const modalHandler = useCallback((text) => {
     if(text){
       dispatch({type: 'SHOW_MODAL', payload: text})
     } else {
       dispatch({type: 'HIDE_MODAL'})
     }
-  }
+  }, [])
 
-  const usernameHandler = (data) => {
+  const usernameHandler = useCallback((data) => {
     dispatch({type: 'SET_USERNAME', payload: data})
-  }
+  }, [])
 
-  const cardsHandler = (data) => {
-    console.log(data);
+  const cardsHandler = useCallback((data) => {
     dispatch({type: 'SET_CARDS', payload: {total: data.total, cards: data.result}})
-  }
-
-  console.log(state);
+  }, [])
 
   const value = {
     state,

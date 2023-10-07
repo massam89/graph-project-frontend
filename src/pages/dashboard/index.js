@@ -12,17 +12,18 @@ const Dashboard = () => {
   const page = state.cards.page
 
   const getListHandler = useCallback(() => {
+    if(size <= page + 1) setIsLoadMoreShow(false)
+
     setIsLoading(true)
-    getList(state.cards.page + 1, state.cards.size)
+
+    getList(page + 1, size)
     .then(res => {
       setIsLoading(false)
       cardsHandler(res.data)
-    } )
-    .catch(err => {
-      setIsLoading(false)
-      console.log(err)
     })
-  }, [])
+    .catch(err => setIsLoading(false))
+
+  }, [size, page, cardsHandler])
 
   useEffect(() => {
     getUsername()
@@ -30,12 +31,9 @@ const Dashboard = () => {
     .catch(err => modalHandler(err.response?.data.result))
 
     getListHandler()
-   
-  }, [])
-
-  useEffect(() => {
-    if(size === page) setIsLoadMoreShow(false)
-  }, [size, page] )
+    
+    // eslint-disable-next-line
+  }, [usernameHandler, modalHandler])
 
   return (
     <div className={styles.container}>
