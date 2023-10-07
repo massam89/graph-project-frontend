@@ -1,78 +1,13 @@
 .container {
-    background-color: rgba(51, 49, 49, 0.972);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     border-radius: 10px;
     cursor: pointer;
+    height: auto;
     overflow: hidden;
-    position: relative;
+    width: 32%;
+    height: 130px;
+    transition: height 1s ease;
 }
 
-.top-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-    padding: 0 10%;
-}
-
-.bottom-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.bottom-box span {
-    border: 2px #fffffd dashed;
-    width: 33%;
-    text-align: center;
-    padding: 5px 0;
-    margin: 5px 0;
-    border-radius: 5px;
-}
-
-.airline {
-    font-size: 2rem;
-}
-
-.details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.location-time-date {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;    
-}
-
-.location-time-date span:nth-child(odd){
-    font-size: 1.3rem;
-    color: rgb(149, 147, 147)
-}
-
-.location-time-date span:nth-child(even){
-    font-size: 2.3rem;
-    font-weight: 500;
-    color: #fffffd;
-}
-
-.airplane-image img{
-    display: block;
-    width: 30px;
-    height: 30px;
-}
-
-.type {
-    font-size: 1.1rem;
-    background-color: rgb(203, 33, 33);
-    padding: 5px 30px;
-    position: absolute;
-    top: 15px;
-    left: -35px;
-    transform: rotate(-45deg);
+.container:hover {
+    height: 260px;
 }

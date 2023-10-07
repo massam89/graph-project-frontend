@@ -47,7 +47,6 @@ const Dashboard = () => {
         <Card 
           item={item} 
           key={index}
-          containerClassNames={styles.card}
         />
         )} 
       </div>
