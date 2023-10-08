@@ -2,6 +2,7 @@
     background-color: rgb(51, 49, 49);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     cursor: pointer;
     padding-top: 10px;
     position: absolute;
@@ -11,50 +12,18 @@
     height: 130px;
 }
 
-.top-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5px;
-    padding: 0 10%;
-}
-
-.bottom-box {
+.details {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.bottom-box span {
-    border: 2px #fffffd dashed;
-    width: 25%;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 5px;
-}
-
-.airline {
-    font-size: 2rem;
-}
-
-.airline img {
-    width: 120px;
-    height: 40px;
-    margin-top: 10px;
-}
-
-.details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+    gap: 40px;
 }
 
 .location-time-date {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;    
+    align-items: center;   
 }
 
 .location-time-date span:nth-child(odd){
@@ -68,12 +37,6 @@
     color: #fffffd;
 }
 
-.airplane-image img{
-    display: block;
-    width: 30px;
-    height: 30px;
-}
-
 .type {
     font-size: 1.1rem;
     background-color: rgb(203, 33, 33);
@@ -83,3 +46,42 @@
     left: -35px;
     transform: rotate(-45deg);
 }
+
+.price {
+    background-color: gray;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.airplane {
+    position: relative;
+}
+
+.airplane img {
+    display: block;
+    margin: 10px auto;
+    width: 30px;
+    height: 30px;
+
+}
+
+.dots {
+    margin: 0 30px;
+    width: 5px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    clip-path: inset(-45px);
+    box-shadow: -60px 15px,-60px 15px,-60px 15px;
+    transform: translateY(-15px);
+    animation: d9 3s infinite linear;
+    position: absolute;
+    top: 23px;
+    color: rgb(179, 174, 174);
+  }
+  
+  @keyframes d9{ 
+    16.67% {box-shadow:-60px 15px,-60px 15px,19px 15px}
+    100%   {box-shadow: 60px 15px, 60px 15px,60px 15px}
+  }
+  

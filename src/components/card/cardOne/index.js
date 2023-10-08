@@ -40,12 +40,10 @@ const CardOne = ({item, isClicked}) => {
         <span>${item.price}</span>
       </div>
 
-      {!isClicked && 
-        <div className={styles.type}>
-          <span>{upperCaseFirstLetter(item.class)}</span>
-        </div>
-      }
-      
+      <div className={styles.type}>
+        <span>{upperCaseFirstLetter(item.class)}</span>
+      </div>
+
     </div>
   )
 }

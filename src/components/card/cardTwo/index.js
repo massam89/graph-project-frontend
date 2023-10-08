@@ -8,37 +8,30 @@ const CardTwo = ({item, isClicked}) => {
 
   return (
     <div className={`${styles.container} ${isClicked && styles['container-isClicked']}`} > 
-      <div className={styles['top-box']}>
 
-        <div className={styles.airline}>
-          <img src={item.logoSrc} loading='lazy' alt='airline' />
+      <div className={styles['details']}>
+
+        <div className={styles['location-time-date']}>
+        <span>From</span>
+          <span>{item.dst.iso3}</span> 
+          <span>{item.dst.country}</span>
         </div>
 
-        <div className={styles['details']}>
-
-          <div className={styles['location-time-date']}>
-          <span>{item.src.iso3}</span>
-            <span>{moment(item.src.time).format('hh:mm')}</span> 
-            <span>{moment(item.src.time).format('MMM DD')}</span>
+        <div className={styles['airplane']}>
+          <div className={styles.dots}></div>
+          <img src={airplaneImage} alt='airplane' />
+          <div className={styles['price']}>
+            <span>${item.price}</span>
           </div>
-
-          <div className={styles['airplane-image']}>
-            <img src={airplaneImage} alt='airplane' />
-          </div>
-
-          <div className={styles['location-time-date']}>
-            <span>{item.dst.iso3}</span>
-            <span>{moment(item.dst.time).format('hh:mm')}</span> 
-            <span>{moment(item.dst.time).format('MMM DD')}</span>
-          </div>
-
         </div>
 
-      </div>
+        <div className={styles['location-time-date']}>
+          <span>To</span>
+          <span>{item.src.iso3}</span> 
+          <span>{item.src.country}</span>
+        </div>
 
-      <div className={styles['bottom-box']}>
-        <span>${item.price}</span>
-      </div>
+      </div>    
 
       <div className={styles.type}>
         <span>{upperCaseFirstLetter(item.class)}</span>

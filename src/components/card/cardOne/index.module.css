@@ -9,6 +9,7 @@
     transform: rotateX(0deg);
     transform-origin: bottom;
     z-index: 3;
+    height: 130px;
 }
 
 .top-box {
