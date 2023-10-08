@@ -41,7 +41,7 @@ const CardTwo = ({item, isClicked}) => {
       </div>
 
       <div className={styles.type}>
-        <span>{upperCaseFirstLetter(item.class)}2</span>
+        <span>{upperCaseFirstLetter(item.class)}</span>
       </div>
     </div>
   )

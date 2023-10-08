@@ -14,8 +14,8 @@ const Card = ({item}) => {
   return (
     <div onClick={toggleClick} className={`${styles.container} ${isClicked && styles['container-isClicked']}`}>
       <CardOne item={item} isClicked={isClicked} />
-      <CardTwo item={item} />
-      {/* <CardThree item={item} />  */}
+      <CardTwo item={item} isClicked={isClicked} /> 
+      <CardThree item={item} isClicked={isClicked} /> 
     </div>
   )
 }

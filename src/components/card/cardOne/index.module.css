@@ -2,12 +2,11 @@
     background-color: rgb(51, 49, 49);
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
     cursor: pointer;
     position: relative;
     padding-top: 10px;
     transition: all 1s ease;
-    z-index: 2;
+    z-index: 3;
 }
 
 .top-box {
@@ -84,7 +83,7 @@
 }
 
 .container-isClicked {
-    transform: rotateX(-180deg);
+    transform: rotateX(180deg);
     transform-origin: bottom;
-    border-bottom: 2px rgb(72, 71, 71) dashed;
+    z-index: 2;
 }

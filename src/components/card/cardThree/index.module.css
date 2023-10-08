@@ -1,12 +1,16 @@
 .container {
-    background-color: rgba(51, 49, 49, 0.972);
+    background-color: rgb(51, 49, 49);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    border-radius: 10px;
     cursor: pointer;
-    overflow: hidden;
-    position: absolute;
+    padding-top: 10px;
+    transition: all 1s ease;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 135px;
+    transform: rotateX(-180deg);
+    transform-origin: top;
 }
 
 .top-box {
@@ -33,6 +37,12 @@
 
 .airline {
     font-size: 2rem;
+}
+
+.airline img {
+    width: 120px;
+    height: 40px;
+    margin-top: 10px;
 }
 
 .details {
@@ -66,12 +76,10 @@
     height: 30px;
 }
 
-.type {
-    font-size: 1.1rem;
-    background-color: rgb(203, 33, 33);
-    padding: 5px 30px;
-    position: absolute;
-    top: 15px;
-    left: -35px;
-    transform: rotate(-45deg);
+.container-isClicked {
+    transform: rotateX(0deg);
+    transform-origin: bottom; 
+    border-top: 3px dashed gray;
+    border-bottom: 1px rgb(47, 46, 46) dashed;
+    z-index: 3;
 }
