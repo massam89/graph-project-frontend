@@ -5,21 +5,21 @@ import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <App />,
-      errorElement: <Error />,
-      children: [
-        {
-          path: "/login",
-          element: <Login />,
-        },
-        {
-          path: "/dashboard",
-          element: <Dashboard />,
-        },
-      ],
-    },
-  ]);
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
+    ],
+  },
+]);
 
-  export default router
+export default router;

@@ -1,43 +1,28 @@
 import React from 'react'
-import airplaneImage from '../../../assets/airplane.png'
-import { upperCaseFirstLetter } from '../../../utils/helper';
+import { calculateDuration } from '../../../utils/helper';
 import moment from 'moment/moment';
 import styles from './index.module.css'
 
 const CardThree = ({item, isClicked}) => {
+  
+  const details = {
+    FlightTime: `${moment(item.src.time).format('hh:mm')} - ${moment(item.dst.time).format('hh:mm')}`,
+    Duration: calculateDuration(item.src.time, item.dst.time),
+    Boarding: item.boarding ,
+    Transfer: item.transfer ? 'Yes' : 'No',
+    Gate: item.gates ,
+    Seat: item.seat,
+  }
 
   return (
     <div className={`${styles.container} ${isClicked && styles['container-isClicked']}`} > 
-      <div className={styles['top-box']}>
-
-        <div className={styles.airline}>
-          <img src={item.logoSrc} loading='lazy' alt='airline' />
-        </div>
-
-        <div className={styles['details']}>
-
-          <div className={styles['location-time-date']}>
-          <span>{item.src.iso3}</span>
-            <span>{moment(item.src.time).format('hh:mm')}</span> 
-            <span>{moment(item.src.time).format('MMM DD')}</span>
+      <div className={styles['details']}>
+        {Object.entries(details).map((item, index) => 
+          <div className={styles['details-box']} key={index}>
+            <span>{item[1]}</span>
+            <span>{item[0]}</span>
           </div>
-
-          <div className={styles['airplane-image']}>
-            <img src={airplaneImage} alt='airplane' />
-          </div>
-
-          <div className={styles['location-time-date']}>
-            <span>{item.dst.iso3}</span>
-            <span>{moment(item.dst.time).format('hh:mm')}</span> 
-            <span>{moment(item.dst.time).format('MMM DD')}</span>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div className={styles['bottom-box']}>
-        <span>${item.price}</span>
+        )}
       </div>
     </div>
   )

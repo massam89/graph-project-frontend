@@ -14,18 +14,18 @@ const App = () => {
   useEffect(() => {
     navigate(`${!checkAuth() ? '/login' : '/dashboard'}`)
 
-    axios.interceptors.request.use(function (config) {
+    axios.interceptors.request.use((config) => {
       loaderHandler(true)
       return config;
-    }, function (error) {
+    }, (error) => {
       loaderHandler(false)
       return Promise.reject(error);
     });
 
-    axios.interceptors.response.use(function (response) {
+    axios.interceptors.response.use((response) => {
       loaderHandler(false)
       return response;
-    }, function (error) {
+    }, (error) => {
       loaderHandler(false)
       if(error.response.status === 401){
         localStorage.removeItem('token')

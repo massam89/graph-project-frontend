@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&family=Roboto:wght@100;300;400;500;700;900&family=Rubik+Gemstones&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&family=Roboto:wght@100;300;400;500;700;900&family=Rubik+Gemstones&display=swap");
 
 :root {
   font-size: 14px;
@@ -8,7 +8,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 html {

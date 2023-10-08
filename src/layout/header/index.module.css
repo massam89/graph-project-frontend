@@ -1,48 +1,48 @@
 .container {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-    background-color: rgba(41, 39, 39, 0.816);
-    letter-spacing: 3px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(41, 39, 39, 0.816);
+  letter-spacing: 3px;
 }
 
 .btn {
-    background-color: rgba(155, 152, 152, 0.85);
-    color: white;
-    padding: 10px 20px;
-    outline: none;
-    border: none;
-    cursor: pointer;
+  background-color: rgba(155, 152, 152, 0.85);
+  color: white;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 .btn:hover {
-    background-color: rgba(173, 73, 73, 0.85);
+  background-color: rgba(173, 73, 73, 0.85);
 }
 
 .arrow-down-icon {
-    width: 10px;
-    height: 10px;
+  width: 10px;
+  height: 10px;
 }
 
-.logout-icon{
-    width: 10px;
-    height: 10px;
-    fill: #fffffd;
+.logout-icon {
+  width: 10px;
+  height: 10px;
+  fill: #fffffd;
 }
 
 .arrow-down-icon {
-    width: 10px;
-    height: 10px;
-    margin-left: 10px;
-    fill: #fffffd
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  fill: #fffffd;
 }
 
 .box-down {
-    padding: 10px 5px;
-    background-color: #787877;
-    font-size: 0.8rem;
+  padding: 10px 5px;
+  background-color: #787877;
+  font-size: 0.8rem;
 }

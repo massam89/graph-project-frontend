@@ -1,87 +1,89 @@
 .container {
-    background-color: rgb(51, 49, 49);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
-    padding-top: 10px;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    width: 100%;
-    height: 130px;
+  background-color: rgb(51, 49, 49);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  padding-top: 10px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 130px;
 }
 
 .details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 }
 
 .location-time-date {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;   
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.location-time-date span:nth-child(odd){
-    font-size: 1.3rem;
-    color: rgb(149, 147, 147)
+.location-time-date span:nth-child(odd) {
+  font-size: 1.3rem;
+  color: rgb(149, 147, 147);
 }
 
-.location-time-date span:nth-child(even){
-    font-size: 2.3rem;
-    font-weight: 500;
-    color: #fffffd;
+.location-time-date span:nth-child(even) {
+  font-size: 2.3rem;
+  font-weight: 500;
+  color: #fffffd;
 }
 
 .type {
-    font-size: 1.1rem;
-    background-color: rgb(203, 33, 33);
-    padding: 5px 30px;
-    position: absolute;
-    top: 15px;
-    left: -35px;
-    transform: rotate(-45deg);
+  font-size: 1.1rem;
+  background-color: rgb(203, 33, 33);
+  padding: 5px 30px;
+  position: absolute;
+  top: 15px;
+  left: -35px;
+  transform: rotate(-45deg);
 }
 
 .price {
-    background-color: gray;
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-align: center;
+  background-color: gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .airplane {
-    position: relative;
+  position: relative;
 }
 
 .airplane img {
-    display: block;
-    margin: 10px auto;
-    width: 30px;
-    height: 30px;
-
+  display: block;
+  margin: 10px auto;
+  width: 30px;
+  height: 30px;
 }
 
 .dots {
-    margin: 0 30px;
-    width: 5px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    clip-path: inset(-45px);
-    box-shadow: -60px 15px,-60px 15px,-60px 15px;
-    transform: translateY(-15px);
-    animation: d9 3s infinite linear;
-    position: absolute;
-    top: 23px;
-    color: rgb(179, 174, 174);
+  margin: 0 30px;
+  width: 5px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  clip-path: inset(-45px);
+  box-shadow: -60px 15px, -60px 15px, -60px 15px;
+  transform: translateY(-15px);
+  animation: d9 3s infinite linear;
+  position: absolute;
+  top: 23px;
+  color: rgb(179, 174, 174);
+}
+
+@keyframes d9 {
+  16.67% {
+    box-shadow: -60px 15px, -60px 15px, 19px 15px;
   }
-  
-  @keyframes d9{ 
-    16.67% {box-shadow:-60px 15px,-60px 15px,19px 15px}
-    100%   {box-shadow: 60px 15px, 60px 15px,60px 15px}
+  100% {
+    box-shadow: 60px 15px, 60px 15px, 60px 15px;
   }
-  
+}

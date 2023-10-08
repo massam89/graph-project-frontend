@@ -1,14 +1,14 @@
 .container {
-    border-radius: 10px;
-    cursor: pointer;
-    height: auto;
-    overflow: hidden;
-    width: 32%;
-    height: 130px;
-    transition: height 1s ease;
-    position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+  height: auto;
+  overflow: hidden;
+  width: 32%;
+  height: 130px;
+  transition: height 1s ease;
+  position: relative;
 }
 
 .container-isClicked {
-    height: 260px;
+  height: 260px;
 }

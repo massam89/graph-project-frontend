@@ -36,19 +36,13 @@ const Dashboard = () => {
 
   return (
     <div className={styles.container}>
-
       <div className={styles['list-count']}>
         <span>Viewed: {state.cards.viewed}</span>
         <span>Total: {state.cards.total}</span>
       </div>
 
       <div className={styles['cards-container']}>
-        {state.cards.items.map((item, index) => 
-        <Card 
-          item={item} 
-          key={index}
-        />
-        )} 
+        {state.cards.items.map((item, index) => <Card item={item} key={index} />)} 
       </div>
 
       {state.loadMoreBtn &&
@@ -60,7 +54,6 @@ const Dashboard = () => {
             />
         </div>
       }
-      
     </div>
     
   )

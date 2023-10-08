@@ -7,9 +7,7 @@ import CardTwo from './cardTwo';
 const Card = ({item}) => {
   const [isClicked, setIsClicked] = useState(false)
 
-  const toggleClick = () => {
-    setIsClicked(prevState => !prevState)
-  }
+  const toggleClick = () => setIsClicked(prevState => !prevState)
   
   return (
     <div onClick={toggleClick} className={`${styles.container} ${isClicked && styles['container-isClicked']}`}>

@@ -20,12 +20,11 @@ const Popover = ({ btnClassNames, btnText, iconClassnames, items = [], boxClassn
       {isShow && (
         <ul className={`${styles['box-down']} ${boxClassnames}`}>
           {items.map((item, index) => (
-            <li 
+            <li key={index}
             onClick={() => {
               item.onClick()
               toggleShowPopover()
-            }} 
-            key={index}
+            }}    
             >
               {item.name} {"  "}
               {item.icon}

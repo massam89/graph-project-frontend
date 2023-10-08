@@ -9,16 +9,14 @@ const CardOne = ({item, isClicked}) => {
   return (
     <div className={`${styles.container} ${isClicked && styles['container-isClicked']}`} > 
       <div className={styles['top-box']}>
-
         <div className={styles.airline}>
           <img src={item.logoSrc} loading='lazy' alt='airline' />
         </div>
 
         <div className={styles['details']}>
-
           <div className={styles['location-time-date']}>
-          <span>{item.src.iso3}</span>
-            <span>{moment(item.src.time).format('hh:mm')}</span> 
+            <span>{item.src.iso3}</span>
+            <span>{moment(item.src.time).format('hh:mm')}</span>
             <span>{moment(item.src.time).format('MMM DD')}</span>
           </div>
 
@@ -31,9 +29,7 @@ const CardOne = ({item, isClicked}) => {
             <span>{moment(item.dst.time).format('hh:mm')}</span> 
             <span>{moment(item.dst.time).format('MMM DD')}</span>
           </div>
-
         </div>
-
       </div>
 
       <div className={styles['bottom-box']}>
@@ -43,7 +39,6 @@ const CardOne = ({item, isClicked}) => {
       <div className={styles.type}>
         <span>{upperCaseFirstLetter(item.class)}</span>
       </div>
-
     </div>
   )
 }

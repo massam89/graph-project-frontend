@@ -4,35 +4,35 @@
 }
 
 .box {
-    position: fixed;
-    bottom: 40px;
-    left: 20px;
-    background-color: rgb(37, 35, 35);
-    padding: 20px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    border-radius: 10px;
-    width: 300px;
+  position: fixed;
+  bottom: 40px;
+  left: 20px;
+  background-color: rgb(37, 35, 35);
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  width: 300px;
 }
 
 .text {
-    font-size: 1.9rem;
-    text-align: center;
+  font-size: 1.9rem;
+  text-align: center;
 }
 
 .btn {
-    background-color: rgba(155, 152, 152, 0.85);
-    color: white;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 5px 20px;
+  background-color: rgba(155, 152, 152, 0.85);
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 20px;
 }
 
 .btn:hover {
-    background-color: rgba(173, 73, 73, 0.85);
+  background-color: rgba(173, 73, 73, 0.85);
 }

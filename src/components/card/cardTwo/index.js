@@ -1,18 +1,15 @@
 import React from 'react'
 import airplaneImage from '../../../assets/airplane.png'
 import { upperCaseFirstLetter } from '../../../utils/helper';
-import moment from 'moment/moment';
 import styles from './index.module.css'
 
 const CardTwo = ({item, isClicked}) => {
 
   return (
     <div className={`${styles.container} ${isClicked && styles['container-isClicked']}`} > 
-
       <div className={styles['details']}>
-
         <div className={styles['location-time-date']}>
-        <span>From</span>
+          <span>From</span>
           <span>{item.dst.iso3}</span> 
           <span>{item.dst.country}</span>
         </div>
@@ -30,7 +27,6 @@ const CardTwo = ({item, isClicked}) => {
           <span>{item.src.iso3}</span> 
           <span>{item.src.country}</span>
         </div>
-
       </div>    
 
       <div className={styles.type}>
