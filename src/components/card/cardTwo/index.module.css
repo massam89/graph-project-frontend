@@ -1,12 +1,15 @@
 .container {
-    background-color: rgba(51, 49, 49, 0.972);
+    background-color: rgb(51, 49, 49);
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     border-radius: 10px;
     cursor: pointer;
-    overflow: hidden;
+    padding-top: 10px;
     position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 130px;
 }
 
 .top-box {
@@ -33,6 +36,12 @@
 
 .airline {
     font-size: 2rem;
+}
+
+.airline img {
+    width: 120px;
+    height: 40px;
+    margin-top: 10px;
 }
 
 .details {

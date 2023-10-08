@@ -4,9 +4,10 @@ import { upperCaseFirstLetter } from '../../../utils/helper';
 import moment from 'moment/moment';
 import styles from './index.module.css'
 
-const CardOne = ({item}) => {
+const CardOne = ({item, isClicked}) => {
+
   return (
-    <div className={styles.container}> 
+    <div className={`${styles.container} ${isClicked && styles['container-isClicked']}`} > 
       <div className={styles['top-box']}>
 
         <div className={styles.airline}>
