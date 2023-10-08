@@ -78,7 +78,6 @@
 
 .container-isClicked {
     transform: rotateX(0deg);
-    transform-origin: bottom; 
     border-top: 3px dashed gray;
     border-bottom: 1px rgb(47, 46, 46) dashed;
     z-index: 3;
