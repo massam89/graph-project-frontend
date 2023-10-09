@@ -12,3 +12,15 @@
 .container-isClicked {
   height: 260px;
 }
+
+@media only screen and (min-width: 930px) and (max-width: 1200px){
+	.container {
+    width: 49%;
+  }
+}
+
+@media only screen and (max-width: 930px){
+	.container {
+    width: 100%;
+  }
+}

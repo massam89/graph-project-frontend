@@ -90,3 +90,30 @@
   transform-origin: bottom;
   z-index: 2;
 }
+
+@media only screen and (max-width: 500px) {
+  .bottom-box span {
+    margin-top: 10px;
+  }
+
+  .airline {
+    font-size: 1.5rem;
+  }
+
+  .airline img {
+    width: 60px;
+    height: 20px;
+    margin-top: 10px;
+  }
+
+  .location-time-date span:nth-child(odd) {
+    font-size: 1.1rem;
+    color: rgb(149, 147, 147);
+  }
+
+  .location-time-date span:nth-child(even) {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #fffffd;
+  }
+}
