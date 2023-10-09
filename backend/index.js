@@ -25,7 +25,7 @@ const flightList = [
       airline: 'Kempegowda International'
     },
     dst: {
-      country: 'United States of America',
+      country: 'America',
       iso3: 'USA',
       time: '2021-05-28T11:22:27.523Z',
       airline: 'Indira Gandhi International'
