@@ -15,11 +15,12 @@ const Dashboard = () => {
     setLoadingOnBtn(true)
     getList(page, size)
     .then(res => {
-      cardsHandler(res)
-      setLoadingOnBtn(false)
+      if(res.result !== 'unauthorized'){
+        cardsHandler(res)
+        setLoadingOnBtn(false)
+      }
     })
     .catch(err => {
-      console.log(err)
       setLoadingOnBtn(false)
     })
 
