@@ -13,9 +13,11 @@ Once you have Node.js and Git installed, you can proceed with the steps mentione
 1. Clone the app repository to your local machine using the command: `git clone <repository-url>`
 2. Rename the `.env.local.example` file to `.env.local` and update the URL to point to port 5001.
 3. Install the necessary dependencies by running the command: `npm install`
-4. Start the app by running the command: `npm start`
-5. In another command line interface, start the server by running the command: `npm run server`
-6. Use the provided username "admin" and password "123456" to log in to the app.
+4. Run project:
+    - Start the app by running the command: `npm start`
+    - In another command line interface, start the server by running the command: `npm run server`
+    - OR you can run both commands at the same time with one command: `npm run mix`
+7. Use the provided username "admin" and password "123456" to log in to the app.
 
 ### Changing the server port
 To modify the server port, follow these steps:
