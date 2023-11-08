@@ -6,6 +6,7 @@ const { uuid } = require('uuidv4');
 var nJwt = require('njwt');
 var bodyParser = require('body-parser');
 const crypto = require('crypto')
+const automate = require('./automate')
 
 app.use(cors())
 app.use(bodyParser.json()); // support json encoded bodies
@@ -309,6 +310,7 @@ app.post('/webhook', (req, res) => {
   if (calculatedSignature === signature) {
     // Signature is valid, process the payload
     console.log('Received a valid GitHub webhook.');
+    automate()
     // Perform actions based on the payload (e.g., pull changes, trigger a build, etc.)
   } else {
     console.error('Invalid signature. Rejecting webhook.');
