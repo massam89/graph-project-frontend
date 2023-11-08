@@ -9,7 +9,8 @@ const Form = (
   headerText,
   headerClassNames='',
   buttonText,
-  buttonClassNames=''
+  buttonClassNames='',
+  id
 }) => {
 
 const onSubmitHandler = (e) => {
@@ -18,7 +19,7 @@ const onSubmitHandler = (e) => {
 }
 
   return (
-    <form onSubmit={onSubmitHandler} className={formClassNames}>
+    <form id={id} onSubmit={onSubmitHandler} className={formClassNames}>
       <h2 className={headerClassNames}>{headerText}</h2>
       {inputs.map((input, index) => <Input key={index} config={input} />)}
       <button className={buttonClassNames} type='submit'>{buttonText}</button>

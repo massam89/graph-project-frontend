@@ -57,8 +57,8 @@ const Login = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <Form {...formConfiguration} />
+    <div className={styles.container} >
+      <Form id='login-form' {...formConfiguration} />
     </div>
   )
 }
