@@ -6,7 +6,7 @@ import styles from './index.module.css'
 import BtnWithLoader from '../../components/btnWithLoader'
 
 const Dashboard = () => {
-  const {state, usernameHandler, modalHandler, cardsHandler} = useContext(Context)
+  const {state, usernameHandler, modalHandler, cardsHandler, loadingBarHandler} = useContext(Context)
   const [loadingOnBtn, setLoadingOnBtn] = useState(false)
   const size = state.cards.size
   const page = state.cards.page
@@ -27,12 +27,17 @@ const Dashboard = () => {
   }, [size, page, cardsHandler])
 
   useEffect(() => {
+    loadingBarHandler(25)
     getUsername()
-    .then(res => usernameHandler(res.data.username))
+    .then(res => {
+      loadingBarHandler(100)
+      usernameHandler(res.data.username)
+    } )
     .catch(err => modalHandler(err.response?.data.result))
 
     getListHandler()
 
+    // eslint-disable-next-line
   }, [])
 
   return (

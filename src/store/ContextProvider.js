@@ -13,7 +13,8 @@ const initialState = {
     page: 1,
     size: 3,
     items: []
-  }
+  },
+  loadingBar: 0
 }
 
 const reduceFunction = (state, action) => {
@@ -30,6 +31,8 @@ const reduceFunction = (state, action) => {
       return {...state, modal: {isShow: false, text: ''}}
     case 'SET_USERNAME':
       return {...state, username: action.payload}
+    case 'SET_LOADING_BAR':
+      return {...state, loadingBar: action.payload}
     case 'SET_CARDS':
       preparedData.cards.total = action.payload.total
       preparedData.cards.viewed = preparedData.cards.page * preparedData.cards.size
@@ -49,7 +52,8 @@ const reduceFunction = (state, action) => {
           page: 1,
           size: 3,
           items: []
-        }
+        },
+        loadingBar: 20
       }
     default:
       return state
@@ -88,13 +92,18 @@ const ContextProvider = (props) => {
     dispatch({type: 'RESET_STATE'})
   }, [])
 
+  const loadingBarHandler = useCallback((percentage) => {
+    dispatch({type: 'SET_LOADING_BAR', payload: percentage})
+  }, [])
+
   const value = {
     state,
     loaderHandler,
     modalHandler,
     usernameHandler,
     cardsHandler,
-    resetState
+    resetState,
+    loadingBarHandler
   }
 
   return <Context.Provider value={value} >{props.children}</Context.Provider>

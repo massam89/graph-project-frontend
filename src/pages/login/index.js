@@ -5,11 +5,13 @@ import { login } from './_srv';
 import styles from './index.module.css'
 import { lockIcon, userIcon } from '../../utils/icons';
 import { Context } from '../../store/ContextProvider';
+import { useEffect } from 'react';
 
 const Login = () => {
-  const {modalHandler} = useContext(Context)
-
+  const {modalHandler, loadingBarHandler} = useContext(Context)
   const navigate = useNavigate()
+
+  useEffect(() => {loadingBarHandler(100)}, [loadingBarHandler])
 
   const submitLogin = (data) => {
     login({
