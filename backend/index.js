@@ -12,7 +12,7 @@ app.use(cors())
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-const secret = '@he@he@';
+const secret = String(process.env.REACT_APP_SECRET_WEBHOOK)
 
 const flightList = [
   {
