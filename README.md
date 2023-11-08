@@ -1,7 +1,7 @@
 ## Demo
 Check out the live demo of the app [here](http://144.172.113.66:5000/).
 
-## How to run app
+## How to run app 
 To run the app and follow the instructions provided, you will need the following necessary software and dependencies: 
 
 1. Node.js: Make sure you have Node.js installed on your machine. You can download it from the official Node.js website (https://nodejs.org) and follow the installation instructions for your operating system.
