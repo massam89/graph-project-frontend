@@ -5,11 +5,13 @@ var randomstring = require("randomstring");
 const { uuid } = require('uuidv4');
 var nJwt = require('njwt');
 var bodyParser = require('body-parser');
+const crypto = require('crypto')
 
 app.use(cors())
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
+const secret = '@he@he@';
 
 const flightList = [
   {
@@ -294,6 +296,25 @@ app.get('/list', function (req, res){
     result: flightList.slice((page-1)*size, page*size)
   };
   res.send(result);
+});
+
+app.post('/webhook', (req, res) => {
+  const signature = req.get('X-Hub-Signature-256');
+  const payload = JSON.stringify(req.body);
+
+  const hmac = crypto.createHmac('sha256', secret);
+  hmac.update(payload);
+  const calculatedSignature = `sha256=${hmac.digest('hex')}`;
+
+  if (calculatedSignature === signature) {
+    // Signature is valid, process the payload
+    console.log('Received a valid GitHub webhook.');
+    // Perform actions based on the payload (e.g., pull changes, trigger a build, etc.)
+  } else {
+    console.error('Invalid signature. Rejecting webhook.');
+  }
+
+  res.sendStatus(200);
 });
 
 app.listen(5001, function () {
