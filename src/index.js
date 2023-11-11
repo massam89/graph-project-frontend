@@ -6,9 +6,13 @@ import router from "./router/router";
 
 import "./styles/global.css";
 import "driver.js/dist/driver.css";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ContextProvider>
-    <RouterProvider router={router} />
-  </ContextProvider>
+  <Provider store={store}>
+    <ContextProvider>
+      <RouterProvider router={router} />
+    </ContextProvider>
+  </Provider>
 );

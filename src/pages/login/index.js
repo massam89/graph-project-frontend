@@ -1,32 +1,22 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Form from '../../components/common/form'
-import { useNavigate } from 'react-router-dom';
-import { login } from './_srv';
 import styles from './index.module.css'
 import { lockIcon, userIcon } from '../../utils/icons';
-import { Context } from '../../store/ContextProvider';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { uiActions } from '../../store/ui/uiSlice';
+import { loginHandler } from '../../store/auth/authActions';
 
 const Login = () => {
-  const {modalHandler, loadingBarHandler} = useContext(Context)
-  const navigate = useNavigate()
+  
+  const dispatch = useDispatch()
 
-  useEffect(() => {loadingBarHandler(100)}, [loadingBarHandler])
+  useEffect(() => {dispatch(uiActions.loadingBarHandler(100))}, [dispatch])
 
-  const submitLogin = (data) => {
-    login({
-      username: data.userName.value,
-      password: data.password.value
-    })
-    .then(res => {
-      if(res.data.result === 'success'){
-        localStorage.setItem('token', res.data.token)
-        navigate('/dashboard')
-      } else {
-        modalHandler('Wrong username or password!')
-      }
-    })
-    .catch(err => modalHandler('Connection Error!'))
+  const submitFormHandler = (data) => {
+    const username = data.userName.value
+    const password = data.password.value
+    dispatch(loginHandler({username, password}))
   }
 
   const formConfiguration = {
@@ -35,7 +25,7 @@ const Login = () => {
     buttonText: 'Login',
     buttonClassNames: styles['submit-btn'],
     formClassNames: styles.form,
-    onSubmit: submitLogin,
+    onSubmit: submitFormHandler,
     inputs: [
       {
         id: 'userName',

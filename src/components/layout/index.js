@@ -6,9 +6,13 @@ import { useContext } from "react";
 import { Context } from "../../store/ContextProvider";
 import { useEffect } from "react";
 import { driverHandler } from "../../utils/driver";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../store/ui/uiSlice";
 
 const Layout = (props) => {
-  const { state, loadingBarHandler } = useContext(Context);
+
+  const loadingBar = useSelector(state => state.ui.loadingBar)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     driverHandler({
@@ -24,8 +28,8 @@ const Layout = (props) => {
     <>
       <LoadingBar
         color="#f11946"
-        progress={state.loadingBar}
-        onLoaderFinished={() => loadingBarHandler(0)}
+        progress={loadingBar}
+        onLoaderFinished={() => {dispatch(uiActions.loadingBarHandler(0))}}
       />
       <Header />
       {props.children}

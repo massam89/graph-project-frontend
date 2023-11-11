@@ -4,37 +4,34 @@ import checkAuth from "../../../utils/checkAuth";
 import { Context } from "../../../store/ContextProvider";
 import Popover from "../../common/popover";
 import { logoutIcon } from "../../../utils/icons";
-import { logout } from "./_srv";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutHandler } from "../../../store/auth/authActions";
 
 const Header = () => {
-  const navigate = useNavigate()
-  const {modalHandler, state, resetState} = useContext(Context)
+  const dispatch = useDispatch()
 
-  const logoutHandler = () => {
-    logout()
-    .then(res => {
-      localStorage.removeItem('token')
-      resetState()
-      navigate('/login')
-    })
-    .catch(err => modalHandler(err.response?.data.result))
+  const username = useSelector(state => state.user.userName)
+
+  const isLogin = useSelector(state => state.auth.isLogin)
+
+  const clickLogoutHandler = () => {
+    dispatch(logoutHandler())
   }
 
   const popoverItem = [
     {
       name: 'Logout',
       icon: logoutIcon(styles['logout-icon']),
-      onClick: logoutHandler
+      onClick: clickLogoutHandler
     }
   ];
 
   return (
     <div className={styles.container}>
       <h1>Graph Application</h1>
-      {checkAuth() && (
+      {isLogin && (
         <Popover
-          btnText={state.username}
+          btnText={username}
           btnClassNames={styles.btn}
           iconClassnames={styles["arrow-down-icon"]}
           items={popoverItem}

@@ -6,44 +6,53 @@ import { Context } from "./store/ContextProvider";
 import axios from "axios";
 import Layout from "./components/layout";
 import Modal from "./components/common/modal";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "./store/ui/uiSlice";
 
 const App = () => {
-  const {state, loaderHandler, modalHandler} = useContext(Context)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const loader = useSelector(state => state.ui.loader)
+  const modal = useSelector(state => state.ui.modal)
 
   useEffect(() => {
     navigate(`${!checkAuth() ? '/login' : '/dashboard'}`)
 
     axios.interceptors.request.use((config) => {
-      loaderHandler(true)
+      dispatch(uiActions.loaderHandler(true))
       return config;
     }, (error) => {
-      loaderHandler(false)
-      return Promise.reject(error);
-    });
-
-    axios.interceptors.response.use((response) => {
-      loaderHandler(false)
-      return response;
-    }, (error) => {
-      loaderHandler(false)
+      dispatch(uiActions.loaderHandler(false))
       if(error.response.status === 401){
         localStorage.removeItem('token')
         navigate('/')
       }
       return Promise.reject(error);
     });
-  }, [navigate, loaderHandler])
+
+    axios.interceptors.response.use((response) => {
+      dispatch(uiActions.loaderHandler(false))
+      return response;
+    }, (error) => {
+      dispatch(uiActions.loaderHandler(false))
+      if(error.response.status === 401){
+        localStorage.removeItem('token')
+        navigate('/')
+      }
+      return Promise.reject(error);
+    });
+  }, [navigate, dispatch])
 
   return (
     <Layout>
       <Outlet />
-      {state.loader && <Loader />}
-      {state.modal.isShow && (
+      {loader && <Loader />}
+      {modal.isShow && (
         <Modal
-          text={state.modal.text}
+          text={modal.text}
           btnText="OK"
-          onClickBtn={() => modalHandler()}
+          onClickBtn={() => dispatch(uiActions.modalHandler({isShow: false}))}
         />
       )}
     </Layout>

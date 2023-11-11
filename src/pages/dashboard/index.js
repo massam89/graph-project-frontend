@@ -1,12 +1,15 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { getList, getUsername } from './_srv'
+import { getList } from './_srv'
 import { Context } from '../../store/ContextProvider'
 import Card from '../../components/common/card'
 import styles from './index.module.css'
 import BtnWithLoader from '../../components/common/btnWithLoader'
+import { useDispatch } from 'react-redux'
+import { getUserName } from '../../store/user/userActions'
 
 const Dashboard = () => {
-  const {state, usernameHandler, modalHandler, cardsHandler, loadingBarHandler} = useContext(Context)
+  const dispatch = useDispatch()
+  const {state, cardsHandler} = useContext(Context)
   const [loadingOnBtn, setLoadingOnBtn] = useState(false)
   const size = state.cards.size
   const page = state.cards.page
@@ -27,18 +30,11 @@ const Dashboard = () => {
   }, [size, page, cardsHandler])
 
   useEffect(() => {
-    loadingBarHandler(25)
-    getUsername()
-    .then(res => {
-      loadingBarHandler(100)
-      usernameHandler(res.data.username)
-    } )
-    .catch(err => modalHandler(err.response?.data.result))
-
-    getListHandler()
+   dispatch(getUserName())
+   getListHandler()
 
     // eslint-disable-next-line
-  }, [])
+  }, [dispatch])
 
   return (
     <div className={styles.container}>
