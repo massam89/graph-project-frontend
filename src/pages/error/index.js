@@ -1,7 +1,6 @@
 import React from 'react'
-import styles from './index.module.css'
-
 import { useRouteError } from "react-router-dom";
+import styles from './index.module.css'
 
 const Error = () => {
   const error = useRouteError();

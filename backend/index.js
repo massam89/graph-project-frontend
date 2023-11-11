@@ -320,6 +320,5 @@ app.post('/webhook', (req, res) => {
 });
 
 app.listen(5001, function () {
-  console.log('Fake Backend listening on port 5001!');
-  console.log('Copyright DSHasin (Dade Sanji Hasin)');
+  console.log('Server has just been run!');
 });

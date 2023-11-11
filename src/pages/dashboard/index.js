@@ -4,7 +4,6 @@ import { Context } from '../../store/ContextProvider'
 import Card from '../../components/card'
 import styles from './index.module.css'
 import BtnWithLoader from '../../components/btnWithLoader'
-import { driverHandler } from '../../utils/driver'
 
 const Dashboard = () => {
   const {state, usernameHandler, modalHandler, cardsHandler, loadingBarHandler} = useContext(Context)
