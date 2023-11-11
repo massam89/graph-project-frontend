@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./index.module.css";
-import checkAuth from "../../../utils/checkAuth";
-import { Context } from "../../../store/ContextProvider";
 import Popover from "../../common/popover";
 import { logoutIcon } from "../../../utils/icons";
 import { useDispatch, useSelector } from "react-redux";
