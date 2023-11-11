@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import styles from "./index.module.css";
-import checkAuth from "../../utils/checkAuth";
-import { Context } from "../../store/ContextProvider";
-import Popover from "../../components/popover";
-import { logoutIcon } from "../../utils/icons";
+import checkAuth from "../../../utils/checkAuth";
+import { Context } from "../../../store/ContextProvider";
+import Popover from "../../common/popover";
+import { logoutIcon } from "../../../utils/icons";
 import { logout } from "./_srv";
 import { useNavigate } from "react-router-dom";
 

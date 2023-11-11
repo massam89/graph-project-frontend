@@ -3,9 +3,9 @@ import Header from "./header";
 import Footer from "./footer";
 import LoadingBar from "react-top-loading-bar";
 import { useContext } from "react";
-import { Context } from "../store/ContextProvider";
+import { Context } from "../../store/ContextProvider";
 import { useEffect } from "react";
-import { driverHandler } from "../utils/driver";
+import { driverHandler } from "../../utils/driver";
 
 const Layout = (props) => {
   const { state, loadingBarHandler } = useContext(Context);

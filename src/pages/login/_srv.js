@@ -1,3 +1,3 @@
-import { ajax } from "../../utils/ajax";
+import { api } from "../../services/api";
 
-export const login = (body) => ajax('/login', 'POST', body)
+export const login = (body) => api('/login', 'POST', body)

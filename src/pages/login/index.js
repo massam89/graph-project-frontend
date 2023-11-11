@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Form from '../../components/form'
+import Form from '../../components/common/form'
 import { useNavigate } from 'react-router-dom';
 import { login } from './_srv';
 import styles from './index.module.css'

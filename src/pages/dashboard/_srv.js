@@ -1,6 +1,6 @@
-import { ajax, baseUrl } from "../../utils/ajax";
+import { api, baseUrl } from "../../services/api";
 
-export const getUsername = () => ajax("/username", "GET");
+export const getUsername = () => api("/username", "GET");
 
 export const getList = async (page, size) => {
   const request = await fetch(`${baseUrl}/list?page=${page}&size=${size}`, {

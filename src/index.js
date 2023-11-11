@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import ContextProvider from "./store/ContextProvider";
-import router from "./router";
+import router from "./router/router";
 
-import "./index.css";
+import "./styles/global.css";
 import "driver.js/dist/driver.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

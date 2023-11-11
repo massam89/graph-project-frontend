@@ -1,5 +1,5 @@
 import React from 'react'
-import { calculateDuration } from '../../../utils/helper';
+import { calculateDuration } from '../../../../utils/helper';
 import moment from 'moment/moment';
 import styles from './index.module.css'
 

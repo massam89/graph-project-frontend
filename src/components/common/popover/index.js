@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import { arrowDownIcon } from "../../utils/icons";
+import { arrowDownIcon } from "../../../utils/icons";
 import styles from "./index.module.css";
-import useOutsideAlerter from "../../hooks/useOutsideAlerter";
+import useOutsideAlerter from "../../../hooks/useOutsideAlerter";
 
 const Popover = ({ btnClassNames, btnText, iconClassnames, items = [], boxClassnames }) => {
   const [isShow, setIsShow] = useState(false);

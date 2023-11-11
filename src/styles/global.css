@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  background: url("./assets/background.jpg");
+  background: url("../assets/background.jpg");
   color: #fffffd;
   background-size: auto;
   width: 100%;

@@ -1,9 +1,9 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { getList, getUsername } from './_srv'
 import { Context } from '../../store/ContextProvider'
-import Card from '../../components/card'
+import Card from '../../components/common/card'
 import styles from './index.module.css'
-import BtnWithLoader from '../../components/btnWithLoader'
+import BtnWithLoader from '../../components/common/btnWithLoader'
 
 const Dashboard = () => {
   const {state, usernameHandler, modalHandler, cardsHandler, loadingBarHandler} = useContext(Context)

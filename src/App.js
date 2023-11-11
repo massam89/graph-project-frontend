@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import checkAuth from "./utils/checkAuth";
-import Loader from "./components/loader";
+import Loader from "./components/common/loader";
 import { Context } from "./store/ContextProvider";
 import axios from "axios";
-import Layout from "./layout";
-import Modal from "./components/modal";
+import Layout from "./components/layout";
+import Modal from "./components/common/modal";
 
 const App = () => {
   const {state, loaderHandler, modalHandler} = useContext(Context)

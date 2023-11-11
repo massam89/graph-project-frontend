@@ -1,6 +1,6 @@
 import React from 'react'
-import airplaneImage from '../../../assets/airplane.png'
-import { upperCaseFirstLetter } from '../../../utils/helper';
+import airplaneImage from '../../../../assets/airplane.png'
+import { upperCaseFirstLetter } from '../../../../utils/helper';
 import styles from './index.module.css'
 
 const CardTwo = ({item, isClicked}) => {
