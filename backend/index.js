@@ -307,6 +307,8 @@ app.post('/webhook', (req, res) => {
   hmac.update(payload);
   const calculatedSignature = `sha256=${hmac.digest('hex')}`;
 
+  console.log(secret, calculatedSignature);
+
   if (calculatedSignature === signature) {
     // Signature is valid, process the payload
     console.log('Received a valid GitHub webhook.');
