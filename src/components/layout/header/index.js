@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Graph Application</h1>
+      <h1>Graph App</h1>
       {isLogin && (
         <Popover
           btnText={username}

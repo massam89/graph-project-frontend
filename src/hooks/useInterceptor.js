@@ -38,7 +38,7 @@ const useInterceptor = () => {
         return Promise.reject(error);
       }
     );
-  }, []);
+  }, [dispatch, navigate]);
 
 };
 
