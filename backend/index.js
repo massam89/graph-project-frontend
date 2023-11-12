@@ -7,6 +7,7 @@ var nJwt = require('njwt');
 var bodyParser = require('body-parser');
 const crypto = require('crypto')
 const automate = require('./automate')
+require('dotenv').config()
 
 app.use(cors())
 app.use(bodyParser.json()); // support json encoded bodies
