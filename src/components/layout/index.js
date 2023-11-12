@@ -2,8 +2,6 @@ import React from "react";
 import Header from "./header";
 import Footer from "./footer";
 import LoadingBar from "react-top-loading-bar";
-import { useContext } from "react";
-import { Context } from "../../store/ContextProvider";
 import { useEffect } from "react";
 import { driverHandler } from "../../utils/driver";
 import { useDispatch, useSelector } from "react-redux";

@@ -1,33 +1,21 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { getList } from './_srv'
-import { Context } from '../../store/ContextProvider'
+import React, { useCallback, useEffect, useState } from 'react'
 import Card from '../../components/common/card'
 import styles from './index.module.css'
 import BtnWithLoader from '../../components/common/btnWithLoader'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getUserName } from '../../store/user/userActions'
+import { getCardHandler } from '../../store/card/cardActions'
 
 const Dashboard = () => {
   const dispatch = useDispatch()
-  const {state, cardsHandler} = useContext(Context)
   const [loadingOnBtn, setLoadingOnBtn] = useState(false)
-  const size = state.cards.size
-  const page = state.cards.page
+  const cards = useSelector(state => state.card)
+  const size = cards.size
+  const page = cards.page
 
   const getListHandler = useCallback(() => {
-    setLoadingOnBtn(true)
-    getList(page, size)
-    .then(res => {
-      if(res.result !== 'unauthorized'){
-        cardsHandler(res)
-        setLoadingOnBtn(false)
-      }
-    })
-    .catch(err => {
-      setLoadingOnBtn(false)
-    })
-
-  }, [size, page, cardsHandler])
+    dispatch(getCardHandler({size, page, setLoadingOnBtn}))
+  }, [size, page, dispatch])
 
   useEffect(() => {
    dispatch(getUserName())
@@ -39,15 +27,15 @@ const Dashboard = () => {
   return (
     <div className={styles.container}>
       <div className={styles['list-count']}>
-        <span id='viewed'>Viewed: {state.cards.viewed}</span>
-        <span>Total: {state.cards.total}</span>
+        <span id='viewed'>Viewed: {cards.viewed}</span>
+        <span>Total: {cards.total}</span>
       </div>
 
       <div className={styles['cards-container']}>
-        {state.cards.items.map((item, index) => <Card item={item} key={index} />)} 
+        {cards.items.map((item, index) => <Card item={item} key={index} />)} 
       </div>
 
-      {state.loadMoreBtn &&
+      {cards.loadMore &&
         <div className={styles['load-more']}>
           <BtnWithLoader 
             btnText='Load More'

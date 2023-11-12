@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Loader from "./components/common/loader";
-import axios from "axios";
 import Layout from "./components/layout";
 import Modal from "./components/common/modal";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,10 +8,10 @@ import { uiActions } from "./store/ui/uiSlice";
 import useInterceptor from "./hooks/useInterceptor";
 
 const App = () => {
+  useInterceptor()
+  
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
-  useInterceptor()
 
   const loader = useSelector(state => state.ui.loader)
   const modal = useSelector(state => state.ui.modal)

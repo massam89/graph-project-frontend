@@ -10,6 +10,8 @@ export const getUserName = () => {
         dispatch(uiActions.loadingBarHandler(100));
         dispatch(userActions.userNameHandler(res.data.username));
       })
-      .catch((err) => dispatch(uiActions.modalHandler(err.response?.data.result)));
+      .catch((err) =>
+        dispatch(uiActions.modalHandler(err.response?.data.result))
+      );
   };
 };
