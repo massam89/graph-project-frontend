@@ -1,11 +1,12 @@
 import React from 'react'
 import Form from '../../components/common/form'
 import styles from './index.module.css'
-import { lockIcon, userIcon } from '../../utils/icons';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { uiActions } from '../../store/ui/uiSlice';
 import { loginHandler } from '../../store/auth/authActions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLock, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Login = () => {
   
@@ -33,7 +34,7 @@ const Login = () => {
         type: 'text',
         placeholder: 'Username',
         className: styles.input,
-        icon: userIcon(styles.icon)
+        icon: <FontAwesomeIcon icon={faUserCircle} />
       },
       {
         id: 'password',
@@ -41,7 +42,7 @@ const Login = () => {
         type: 'password',
         placeholder: 'Password',
         className: styles.input,
-        icon: lockIcon(styles.icon)
+        icon: <FontAwesomeIcon icon={faLock} />
       }
     ]
   }

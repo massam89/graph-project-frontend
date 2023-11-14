@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./index.module.css";
 import Popover from "../../common/popover";
-import { logoutIcon } from "../../../utils/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutHandler } from "../../../store/auth/authActions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOut } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -19,7 +20,7 @@ const Header = () => {
   const popoverItem = [
     {
       name: 'Logout',
-      icon: logoutIcon(styles['logout-icon']),
+      icon: <FontAwesomeIcon icon={faSignOut} />,
       onClick: clickLogoutHandler
     }
   ];

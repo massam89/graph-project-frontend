@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
-import { arrowDownIcon } from "../../../utils/icons";
 import styles from "./index.module.css";
 import useOutsideAlerter from "../../../hooks/useOutsideAlerter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const Popover = ({ btnClassNames, btnText, iconClassnames, items = [], boxClassnames }) => {
   const [isShow, setIsShow] = useState(false);
@@ -15,7 +16,7 @@ const Popover = ({ btnClassNames, btnText, iconClassnames, items = [], boxClassn
     <div ref={popoverRef} className={styles.container}>
       <button onClick={toggleShowPopover} className={`${styles.btn} ${btnClassNames}`}>
         {btnText}
-        {arrowDownIcon(iconClassnames)}
+        <FontAwesomeIcon icon={faChevronDown} className={iconClassnames} />
       </button>
       {isShow && (
         <ul className={`${styles['box-down']} ${boxClassnames}`}>
