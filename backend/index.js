@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var cors = require('cors')
 var randomstring = require("randomstring");
-const { uuid } = require('uuidv4');
+const { v4: uuid } = require('uuid');
 var nJwt = require('njwt');
 var bodyParser = require('body-parser');
 const crypto = require('crypto')
@@ -14,6 +14,8 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 const secret = String(process.env.REACT_APP_SECRET_WEBHOOK)
+
+const PORT = 5001
 
 const flightList = [
   {
@@ -321,5 +323,5 @@ app.post('/webhook', (req, res) => {
 });
 
 app.listen(5001, function () {
-  console.log('Server has just been run!');
+  console.log(`Server has just been run on port ${PORT} !`);
 });
